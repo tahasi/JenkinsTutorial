@@ -1,7 +1,10 @@
 pipeline {
     agent { docker { image 'golang' } }
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'go version'
             }
